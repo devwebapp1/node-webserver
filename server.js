@@ -1,6 +1,7 @@
 const express = require('express');
 
 var app = express();
+const port = process.env.PORT || 1234
 
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + "/public"))
@@ -34,6 +35,6 @@ app.get('/bad', (req, res) => {
 	});
 });
 
-app.listen(1234, () => {
-	console.log("server is up on port 1234");
+app.listen(port, () => {
+	console.log("server is up on port " + port);
 });
