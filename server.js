@@ -7,7 +7,8 @@ app.set('view engine', 'hbs');
 app.use(express.static(__dirname + "/public"))
 
 app.use( (req, res, next) => {
-	res.render('maintainens.hbs');
+	//res.render('maintainens.hbs');
+	next();
 })
 
 app.get('/', (req, res) => {
@@ -18,6 +19,16 @@ app.get('/', (req, res) => {
 		pageFooter : new Date().getFullYear()
 	})
 });
+
+app.get('/projects', (req, res) => {
+
+	res.render('projects.hbs',{
+		pageTitle : 'projects Page' , 
+		message : 'hello projects' ,
+		pageFooter : new Date().getFullYear()
+	})
+});
+
 
 app.get('/json', (req, res) => {
 
